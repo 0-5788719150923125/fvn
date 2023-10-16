@@ -13,8 +13,8 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "fvn.helloWorld",
-      "title": "Hello World"
+      "command": "fvn.pong",
+      "title": "Pong!"
     }]
   },
   "scripts": {
