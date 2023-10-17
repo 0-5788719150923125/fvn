@@ -9,7 +9,7 @@
             ]
         },
         "letter": {
-            "match": "a|b|c",
+            "match": "< ONE@CELL:|> ONE@CELL:",
             "name": "keyword.letter"
         },
         "paren-expression": {

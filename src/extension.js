@@ -1,6 +1,7 @@
 const vscode = require('vscode')
 const { isAlive, outputChannel } = require('./common')
 const { connectGun, sendMessage, startServer } = require('./gun')
+require('./language')
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -31,7 +32,7 @@ async function activate(context) {
 
     context.subscriptions.push(disposable)
 
-    outputChannel.appendLine('this is (a) test')
+    outputChannel.appendLine('this is (a) test class thing')
     outputChannel.appendLine('GUN is online. Have FVN!')
 }
 
