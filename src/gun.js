@@ -1,23 +1,26 @@
+const vscode = require('vscode')
 const http = require('http')
 const Gun = require('gun')
-const { colors } = require('./common')
+const { colors, outputChannel } = require('./common')
 
 let gun
 
 async function startServer() {
-    // Serve a static landing page
     const requestListener = function (req, res) {
         res.writeHead(200)
         res.end(`{"error":"This is not for you, but I see you!"}`)
     }
 
-    // Create the webserver
     const server = http
         .createServer(requestListener)
         .listen(60666, '0.0.0.0', function () {
             console.log(`GUN is listening at: http://localhost:60666/gun`)
         })
 
+    connectGun(server)
+}
+
+function connectGun(server = null) {
     gun = Gun({
         peers: ['https://59.src.eco/gun', 'https://95.src.eco/gun'],
         web: server,
@@ -26,7 +29,6 @@ async function startServer() {
         radisk: false,
         axe: false
     })
-
     logMessages(gun)
 }
 
@@ -42,6 +44,7 @@ function sendMessage(input) {
     lastBullet = bullet
     gun.get('src').get('bullets').get('trade').put(bullet)
     console.log(`${colors.RED}< ONE@CELL:${colors.WHITE} ${input}`)
+    outputChannel.appendLine(`< ONE@CELL: ${input}`)
 }
 
 function logMessages(gun) {
@@ -66,10 +69,12 @@ function logMessages(gun) {
                 color = colors.BLUE
             }
             console.log(`${color}> ONE@CELL:${colors.WHITE} ${message}`)
+            outputChannel.appendLine(`> ONE@CELL: ${message}`)
         })
 }
 
 module.exports = {
+    connectGun,
     sendMessage,
     startServer
 }

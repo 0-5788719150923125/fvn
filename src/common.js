@@ -1,4 +1,7 @@
+const vscode = require('vscode')
 const http = require('http')
+
+const outputChannel = vscode.window.createOutputChannel('src', 'src')
 
 async function isAlive(url) {
     return new Promise((resolve, reject) => {
@@ -29,5 +32,6 @@ const colors = {
 
 module.exports = {
     isAlive,
-    colors
+    colors,
+    outputChannel
 }

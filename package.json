@@ -3,6 +3,7 @@
     "displayName": "fvn",
     "description": "F is for friends",
     "version": "0.0.1",
+    "repository": "https://github.com/0-5788719150923125/fvn",
     "engines": {
         "vscode": "^1.83.0"
     },
@@ -17,16 +18,33 @@
                 "command": "fvn.fire",
                 "title": "fire"
             }
+        ],
+        "languages": [
+            {
+                "id": "src",
+                "mimetypes": [
+                    "text/x-code-output"
+                ]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "src",
+                "scopeName": "code.output",
+                "path": "./syntaxes/src.tmGrammar.json"
+            }
         ]
     },
     "scripts": {
         "lint": "eslint .",
         "pretest": "npm run lint",
         "test": "node ./test/runTest.js",
-        "vscode:prepublish": "npm run esbuild-base -- --minify",
+        "vscode:prepublish": "npm run build-base -- --minify",
         "build-base": "esbuild ./src/extension.js --bundle --outfile=build/main.js --external:vscode --format=cjs --platform=node",
         "build": "npm run build-base -- --sourcemap",
-        "build-watch": "npm run build-base -- --sourcemap --watch"
+        "build-watch": "npm run build-base -- --sourcemap --watch",
+        "test-compile": "tsc -p ./",
+        "package": "npx vsce package"
     },
     "dependencies": {
         "gun": "https://github.com/amark/gun.git"
