@@ -10,29 +10,38 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./extension.js",
+  "main": "./src/extension.js",
   "contributes": {
-    "commands": [{
-      "command": "fvn.pong",
-      "title": "Pong!"
-    }]
+    "commands": [
+      {
+        "command": "fvn.fire",
+        "title": "fire"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "test": "node ./test/runTest.js",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "esbuild-base": "esbuild ./src/extension.js --bundle --outfile=build/main.js --external:vscode --format=cjs --platform=node",
+    "esbuild": "npm run esbuild-base -- --sourcemap",
+    "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+    "test-compile": "tsc -p ./"
   },
   "dependencies": {
     "gun": "https://github.com/amark/gun.git"
   },
   "devDependencies": {
-    "@types/vscode": "^1.83.0",
     "@types/mocha": "^10.0.2",
     "@types/node": "18.x",
+    "@types/vscode": "^1.83.0",
+    "@vscode/test-electron": "^2.3.4",
+    "esbuild": "^0.19.5",
     "eslint": "^8.50.0",
     "glob": "^10.3.3",
     "mocha": "^10.2.0",
-    "typescript": "^5.2.2",
-    "@vscode/test-electron": "^2.3.4"
+    "prettier": "^2.8.8",
+    "typescript": "^5.2.2"
   }
 }
