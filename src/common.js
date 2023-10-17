@@ -1,13 +1,6 @@
 const http = require('http')
 
 async function isAlive(url) {
-    const options = {
-        host: 'localhost',
-        port: 60666,
-        path: '/',
-        method: 'GET'
-    }
-
     return new Promise((resolve, reject) => {
         const request = http.get(url, (response) => {
             if (response.statusCode === 200) {

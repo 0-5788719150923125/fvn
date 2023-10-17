@@ -15,7 +15,7 @@ async function startServer() {
     const server = http
         .createServer(requestListener)
         .listen(60666, '0.0.0.0', function () {
-            console.log(`GUN is listening at: https://localhost:60666/gun`)
+            console.log(`GUN is listening at: http://localhost:60666/gun`)
         })
 
     gun = Gun({
@@ -41,7 +41,7 @@ function sendMessage(input) {
     })
     lastBullet = bullet
     gun.get('src').get('bullets').get('trade').put(bullet)
-    console.log(`${colors.RED}ONE@CELL:${colors.WHITE} ${input}`)
+    console.log(`${colors.RED}< ONE@CELL:${colors.WHITE} ${input}`)
 }
 
 function logMessages(gun) {
@@ -65,7 +65,7 @@ function logMessages(gun) {
                 message = data.message
                 color = colors.BLUE
             }
-            console.log(`${color}ONE@CELL:${colors.WHITE} ${message}`)
+            console.log(`${color}> ONE@CELL:${colors.WHITE} ${message}`)
         })
 }
 

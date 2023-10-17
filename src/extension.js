@@ -2,8 +2,6 @@ const vscode = require('vscode')
 const { isAlive } = require('./common')
 const { sendMessage, startServer } = require('./gun')
 
-let gun = null
-
 /**
  * @param {vscode.ExtensionContext} context
  */
@@ -15,7 +13,7 @@ async function activate(context) {
 
     let disposable = vscode.commands.registerCommand('fvn.fire', function () {
         vscode.window
-            .showInputBox({ prompt: 'What would you like to say?' })
+            .showInputBox({ prompt: 'Send message:' })
             .then(async (input) => {
                 if (input) {
                     sendMessage(input)
