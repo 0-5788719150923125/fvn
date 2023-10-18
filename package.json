@@ -24,6 +24,9 @@
                 "id": "src",
                 "mimetypes": [
                     "text/x-code-output"
+                ],
+                "extensions": [
+                    ".ts"
                 ]
             }
         ],
@@ -33,7 +36,46 @@
                 "scopeName": "code.output",
                 "path": "./syntaxes/src.tmGrammar.json"
             }
+        ],
+        "semanticTokenTypes": [
+            {
+                "id": "keyword",
+                "superType": "type",
+                "description": "A template type."
+            }
+        ],
+        "semanticTokenModifiers": [
+            {
+                "id": "input",
+                "description": "Annotates a symbol that is implemented natively"
+            }
+        ],
+        "colors": [
+            {
+                "id": "superstatus.error",
+                "description": "Color for error message in the status bar.",
+                "defaults": {
+                    "dark": "errorForeground",
+                    "light": "errorForeground",
+                    "highContrast": "#010203",
+                    "highContrastLight": "#feedc3"
+                }
+            }
         ]
+    },
+    "configurationDefaults": {
+        "src": {
+            "editor.semanticHighlighting.enabled": true,
+            "editor.semanticTokenColorCustomizations": {
+                "enabled": true,
+                "rules": {
+                    "keyword.input": {
+                        "foreground": "#ff0000",
+                        "fontStyle": "bold"
+                    }
+                }
+            }
+        }
     },
     "scripts": {
         "lint": "eslint .",

@@ -4,13 +4,18 @@
     "repository": {
         "expression": {
             "patterns": [
-                { "include": "#letter" },
+                { "include": "#input" },
+                { "include": "#output" },
                 { "include": "#paren-expression" }
             ]
         },
-        "letter": {
-            "match": "< ONE@CELL:|> ONE@CELL:",
-            "name": "keyword.letter"
+        "input": {
+            "match": "< ONE@CELL:",
+            "name": "keyword.input"
+        },
+        "output": {
+            "match": "> ONE@CELL:",
+            "name": "keyword.output"
         },
         "paren-expression": {
             "begin": "\\(",
