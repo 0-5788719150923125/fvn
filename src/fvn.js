@@ -1,3 +1,4 @@
+const vscode = require('vscode')
 const http = require('http')
 const Gun = require('gun')
 const {
@@ -134,12 +135,48 @@ class FVN {
                 } else {
                     color = colors.BLUE
                 }
+                const result = await simulator(message)
                 console.log(
-                    `${color}> ONE@${this.localHost}:${colors.WHITE} ${message}`
+                    `${color}> ONE@${this.localHost}:${colors.WHITE} ${result.message}`
                 )
-                outputChannel.appendLine(`> ONE@${this.localHost}: ${message}`)
+                outputChannel.appendLine(
+                    `> ONE@${this.localHost}: ${result.message}`
+                )
+                if (result.choice1 && result.choice2) {
+                    const response = await vscode.window.showInformationMessage(
+                        'Simulator: Make a choice.',
+                        result.choice1,
+                        result.choice2
+                    )
+                    outputChannel.appendLine(
+                        `< ONE@${this.localHost}: ${response}`
+                    )
+                }
             })
     }
+}
+
+// This doesn't really do anything, except for demonstrating the workflow.
+async function simulator(message) {
+    if (Math.random() < 0.001) {
+        const words = message.split(' ')
+        if (words.length < 3) return { message }
+        const randomIndexes = []
+        while (randomIndexes.length < 2) {
+            const randomIndex = Math.floor(Math.random() * words.length)
+            if (!randomIndexes.includes(randomIndex)) {
+                randomIndexes.push(randomIndex)
+                words[randomIndex] = `((${words[randomIndex]}))`
+            }
+        }
+        message = words.join(' ')
+        return {
+            message,
+            choice1: words[randomIndexes[0]],
+            choice2: words[randomIndexes[1]]
+        }
+    }
+    return { message }
 }
 
 module.exports = FVN

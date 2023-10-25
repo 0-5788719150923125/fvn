@@ -50,7 +50,7 @@
         "build": "npm run build-base -- --sourcemap",
         "build-watch": "npm run build-base -- --sourcemap --watch",
         "test-compile": "tsc -p ./",
-        "package": "npx vsce package --out 'release/fvn.vsix'"
+        "package": "npx vsce package --out 'release/fvn-0.0.1.vsix'"
     },
     "dependencies": {
         "gun": "https://github.com/amark/gun.git"
