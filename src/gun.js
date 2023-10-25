@@ -24,7 +24,7 @@ function connectGun(server = null) {
     gun = Gun({
         peers: ['https://59.src.eco/gun', 'https://95.src.eco/gun'],
         web: server,
-        file: './data',
+        file: './gun',
         localStorage: false,
         radisk: false,
         axe: false

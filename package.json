@@ -16,7 +16,7 @@
         "commands": [
             {
                 "command": "fvn.fire",
-                "title": "fire"
+                "title": "Fire"
             }
         ],
         "languages": [
@@ -24,58 +24,16 @@
                 "id": "src",
                 "mimetypes": [
                     "text/x-code-output"
-                ],
-                "extensions": [
-                    ".ts"
                 ]
             }
         ],
         "grammars": [
             {
                 "language": "src",
-                "scopeName": "code.output",
+                "scopeName": "source.src",
                 "path": "./syntaxes/src.tmGrammar.json"
             }
-        ],
-        "semanticTokenTypes": [
-            {
-                "id": "keyword",
-                "superType": "type",
-                "description": "A template type."
-            }
-        ],
-        "semanticTokenModifiers": [
-            {
-                "id": "input",
-                "description": "Annotates a symbol that is implemented natively"
-            }
-        ],
-        "colors": [
-            {
-                "id": "superstatus.error",
-                "description": "Color for error message in the status bar.",
-                "defaults": {
-                    "dark": "errorForeground",
-                    "light": "errorForeground",
-                    "highContrast": "#010203",
-                    "highContrastLight": "#feedc3"
-                }
-            }
         ]
-    },
-    "configurationDefaults": {
-        "src": {
-            "editor.semanticHighlighting.enabled": true,
-            "editor.semanticTokenColorCustomizations": {
-                "enabled": true,
-                "rules": {
-                    "keyword.input": {
-                        "foreground": "#ff0000",
-                        "fontStyle": "bold"
-                    }
-                }
-            }
-        }
     },
     "scripts": {
         "lint": "eslint .",
@@ -86,7 +44,7 @@
         "build": "npm run build-base -- --sourcemap",
         "build-watch": "npm run build-base -- --sourcemap --watch",
         "test-compile": "tsc -p ./",
-        "package": "npx vsce package"
+        "package": "npx vsce package --out 'release/fvn.vsix'"
     },
     "dependencies": {
         "gun": "https://github.com/amark/gun.git"

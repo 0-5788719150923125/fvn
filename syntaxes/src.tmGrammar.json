@@ -1,5 +1,5 @@
 {
-    "scopeName": "code.output",
+    "scopeName": "source.src",
     "patterns": [{ "include": "#expression" }],
     "repository": {
         "expression": {
@@ -11,7 +11,7 @@
         },
         "input": {
             "match": "< ONE@CELL:",
-            "name": "keyword.input"
+            "name": "invalid.input"
         },
         "output": {
             "match": "> ONE@CELL:",
