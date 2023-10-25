@@ -1,7 +1,9 @@
 const vscode = require('vscode')
 const http = require('http')
 
-const outputChannel = vscode.window.createOutputChannel('fvn', 'src')
+const outputChannel = vscode.window.createOutputChannel('FVN', 'src')
+
+const delay = (ms) => new Promise((res) => setTimeout(res, ms))
 
 async function isAlive(url) {
     return new Promise((resolve, reject) => {
@@ -23,14 +25,15 @@ async function isAlive(url) {
 }
 
 const colors = {
-    PURPLE: '\x1b[95m',
     BLUE: '\x1b[34m',
-    RED: '\x1b[31m',
     GREEN: '\x1b[32m',
+    PURPLE: '\x1b[95m',
+    RED: '\x1b[31m',
     WHITE: '\x1b[0m'
 }
 
 module.exports = {
+    delay,
     isAlive,
     colors,
     outputChannel

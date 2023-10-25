@@ -9,12 +9,7 @@ const FVN = require('./gun')
 async function activate(context) {
     context.subscriptions.push(outputChannel)
 
-    // if (!(await isAlive('http://localhost:60666'))) {
-    //     outputChannel.appendLine('GUN is offline, starting server...')
-    //     startServer()
-    // } else {
-    //     connectGun()
-    // }
+    outputChannel.show(true)
 
     const fvn = new FVN()
 

@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "detail": "Build, package and release this extension.",
+            "type": "shell",
+            "command": "npm run package"
+        }
+    ]
+}

@@ -1,9 +1,11 @@
 {
     "name": "fvn",
-    "displayName": "fvn",
-    "description": "F is for friends",
+    "displayName": "FVN",
+    "description": "\"F is for friends.\"",
     "version": "0.0.1",
     "repository": "https://github.com/0-5788719150923125/fvn",
+    "publisher": "United Nations of Earth",
+    "icon": "sigil.png",
     "engines": {
         "vscode": "^1.83.0"
     },
