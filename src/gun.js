@@ -1,11 +1,20 @@
 const http = require('http')
 const Gun = require('gun')
-const { colors, delay, isAlive, outputChannel } = require('./common')
+const {
+    colors,
+    delay,
+    isAlive,
+    outputChannel,
+    randomString
+} = require('./common')
 
 class FVN {
     constructor() {
+        this.identifier = randomString(18, '0123456789')
+        this.pubKey = null
         this.gun = null
         this.previousBullet = null
+        this.localHost = 'STATE'
         this.localPort = 60666
         this.localPeer = `http://localhost:${this.localPort}/gun`
         this.bootstrapPeers = [
@@ -89,14 +98,16 @@ class FVN {
         const bullet = JSON.stringify({
             focus: this.focus,
             message: input,
-            pubKey: null,
-            identifier: 'GhostIsCuteVoidGirl',
+            pubKey: this.pubKey,
+            identifier: this.identifier,
             mode: 'cos'
         })
         this.previousBullet = bullet
         this.gun.get('src').get('bullets').get(this.focus).put(bullet)
-        console.log(`${colors.RED}< ONE@CELL:${colors.WHITE} ${input}`)
-        outputChannel.appendLine(`< ONE@CELL: ${input}`)
+        console.log(
+            `${colors.RED}< ONE@${this.localHost}:${colors.WHITE} ${input}`
+        )
+        outputChannel.appendLine(`< ONE@${this.localHost}: ${input}`)
     }
 
     logMessages() {
@@ -123,8 +134,10 @@ class FVN {
                 } else {
                     color = colors.BLUE
                 }
-                console.log(`${color}> ONE@CELL:${colors.WHITE} ${message}`)
-                outputChannel.appendLine(`> ONE@CELL: ${message}`)
+                console.log(
+                    `${color}> ONE@${this.localHost}:${colors.WHITE} ${message}`
+                )
+                outputChannel.appendLine(`> ONE@${this.localHost}: ${message}`)
             })
     }
 }

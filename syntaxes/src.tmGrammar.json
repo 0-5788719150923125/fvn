@@ -10,23 +10,23 @@
             ]
         },
         "input": {
-            "match": "< ONE@CELL:",
+            "match": "< ONE@STATE:",
             "name": "invalid.input"
         },
         "output": {
-            "match": "> ONE@CELL:",
+            "match": "> ONE@STATE:",
             "name": "keyword.output"
         },
         "paren-expression": {
-            "begin": "\\(",
-            "end": "\\)",
+            "begin": "\\(\\(",
+            "end": "\\)\\)",
             "beginCaptures": {
                 "0": { "name": "punctuation.paren.open" }
             },
             "endCaptures": {
                 "0": { "name": "punctuation.paren.close" }
             },
-            "name": "expression.group",
+            "name": "support.class.variable",
             "patterns": [{ "include": "#expression" }]
         }
     }
