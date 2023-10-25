@@ -1,7 +1,7 @@
 const vscode = require('vscode')
 const http = require('http')
 
-const outputChannel = vscode.window.createOutputChannel('src', 'src')
+const outputChannel = vscode.window.createOutputChannel('fvn', 'src')
 
 async function isAlive(url) {
     return new Promise((resolve, reject) => {

@@ -8,15 +8,19 @@
         "vscode": "^1.83.0"
     },
     "categories": [
+        "Machine Learning",
+        "Programming Languages",
         "Other"
     ],
-    "activationEvents": [],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
     "main": "./src/extension.js",
     "contributes": {
         "commands": [
             {
                 "command": "fvn.fire",
-                "title": "Fire"
+                "title": "Fire: Query GUN"
             }
         ],
         "languages": [
