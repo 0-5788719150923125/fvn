@@ -2,6 +2,12 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "install",
+            "detail": "Install all dependencies.",
+            "type": "shell",
+            "command": "npm install"
+        },
+        {
             "label": "build",
             "detail": "Build, package and release this extension.",
             "type": "shell",
