@@ -1,6 +1,6 @@
 const vscode = require('vscode')
 const { outputChannel } = require('./common')
-const FVN = require('./gun')
+const FVN = require('./fvn')
 
 /**
  * This function is called when the extension is activated
