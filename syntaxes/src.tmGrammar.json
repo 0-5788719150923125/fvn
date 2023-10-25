@@ -6,7 +6,7 @@
             "patterns": [
                 { "include": "#input" },
                 { "include": "#output" },
-                { "include": "#paren-expression" }
+                { "include": "#variable" }
             ]
         },
         "input": {
@@ -17,7 +17,7 @@
             "match": "> ONE@STATE:",
             "name": "keyword.output"
         },
-        "paren-expression": {
+        "variable": {
             "begin": "\\(\\(",
             "end": "\\)\\)",
             "beginCaptures": {

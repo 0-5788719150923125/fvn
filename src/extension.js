@@ -1,9 +1,9 @@
 const vscode = require('vscode')
-const { isAlive, outputChannel } = require('./common')
+const { outputChannel } = require('./common')
 const FVN = require('./gun')
 
-// This method is called when the extension is activated
 /**
+ * This function is called when the extension is activated
  * @param {vscode.ExtensionContext} context
  */
 async function activate(context) {

@@ -10,10 +10,6 @@ const {
 
 class FVN {
     constructor() {
-        this.identifier = randomString(18, '0123456789')
-        this.pubKey = null
-        this.gun = null
-        this.previousBullet = null
         this.localHost = 'STATE'
         this.localPort = 60666
         this.localPeer = `http://localhost:${this.localPort}/gun`
@@ -24,6 +20,10 @@ class FVN {
         this.currentPeers = []
         this.keepAliveCounter = 3
         this.focus = 'trade'
+        this.identifier = randomString(18, '0123456789')
+        this.pubKey = null
+        this.gun = null
+        this.previousBullet = null
         this.init()
     }
 
