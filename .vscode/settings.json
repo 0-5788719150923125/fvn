@@ -1,10 +1,10 @@
 {
-  "workbench.colorCustomizations": {
-    "debugConsole.infoForeground": "#ffffff"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "prettier.enable": true,
-  "workbench.editor.limit.value": 3,
-  "workbench.editor.limit.enabled": true
+    "workbench.colorCustomizations": {
+        "debugConsole.infoForeground": "#ffffff"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.enable": true,
+    "workbench.editor.limit.value": 3,
+    "workbench.editor.limit.enabled": true
 }

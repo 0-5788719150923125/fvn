@@ -28,8 +28,9 @@ _ - offline     (just disconnected)
 This extension will do following:
 
 1. Connect to a swarm of [GUN](https://gun.eco) bootstrap peers.
-2. Host a local GUN API at: https://localhost:60666/gun
-3. If multiple instances of VSCode are open, the extension will intelligently connect to the local API, and/or start it (in the event of failure).
+2. Provide a query interface via the `Fire` command (see below).
+3. Host a shared API at: https://localhost:60666/gun
+4. If multiple instances of VSCode are running, the extension will connect to a single, local API. In the event of failure, VSCode will attempt to re-launch the API.
 
 ## Usage
 
@@ -37,6 +38,8 @@ This extension exports a single command, called "Fire". To fire a bullet into GU
 
 1. Press `Ctrl + Shift + P`
 2. Type `Fire`
+
+To automatically scroll with the extension, click on the "lock" icon in the upper-right corner of the Output tab.
 
 More features to come...
 
@@ -52,7 +55,7 @@ Extensions > ... > Install from VSIX...
 
 ### 2. Install from source
 
-Clone this repository, and open it in VSCode. Press "F5" to start the debugger.
+Clone this repository, and open it in VSCode. Use `npm install` to load dependencies. Press "F5" to start the debugger.
 
 If all goes well, a new VSCode window will open, running this extension.
 
