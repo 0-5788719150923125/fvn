@@ -144,13 +144,22 @@ class FVN {
                 )
                 if (result.choice1 && result.choice2) {
                     const response = await vscode.window.showInformationMessage(
-                        'Simulator: Make a choice.',
-                        result.choice1,
-                        result.choice2
+                        'Someone has requested your action.',
+                        'GoTo'
                     )
-                    outputChannel.appendLine(
-                        `< ONE@${this.localHost}: ${response}`
-                    )
+                    if (response === 'GoTo') {
+                        outputChannel.show(true)
+                        const choice =
+                            await vscode.window.showInformationMessage(
+                                'Simulator: Make a choice.',
+                                result.choice1,
+                                result.choice2
+                            )
+
+                        outputChannel.appendLine(
+                            `< ONE@${this.localHost}: ${choice}`
+                        )
+                    }
                 }
             })
     }
