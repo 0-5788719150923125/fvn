@@ -41,6 +41,15 @@ This extension exports a single command, called "Fire". To fire a bullet into GU
 
 To automatically scroll with the extension, click on the "lock" icon in the upper-right corner of the Output tab.
 
+## Configuration
+
+To configure this extension:
+
+1. Press `Ctrl + Shift + P`
+2. Type `Preferences: Open User Settings`
+3. Search for `fvn`
+4. Adjust settings.
+
 More features to come...
 
 ## Installation Methods

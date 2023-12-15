@@ -1,6 +1,8 @@
 const vscode = require('vscode')
 const http = require('http')
 
+const outputChannel = vscode.window.createOutputChannel('FVN', 'src')
+
 const colors = {
     BLUE: '\x1b[34m',
     GREEN: '\x1b[32m',
@@ -10,6 +12,16 @@ const colors = {
 }
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms))
+
+function get_config() {
+    const config = vscode.workspace.getConfiguration()
+    return config.get('fvn')
+}
+
+function get_setting(opt) {
+    const config = get_config()
+    return config[opt]
+}
 
 function randomString(
     len,
@@ -21,8 +33,6 @@ function randomString(
     }
     return text
 }
-
-const outputChannel = vscode.window.createOutputChannel('FVN', 'src')
 
 async function isAlive(url) {
     return new Promise((resolve, reject) => {
@@ -50,6 +60,8 @@ function sigmoid(x) {
 module.exports = {
     colors,
     delay,
+    get_config,
+    get_setting,
     isAlive,
     outputChannel,
     randomString,

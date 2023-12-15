@@ -39,7 +39,22 @@
                 "scopeName": "source.src",
                 "path": "./syntaxes/src.tmGrammar.json"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "FVN",
+            "properties": {
+                "fvn.focus": {
+                    "type": "string",
+                    "default": "trade",
+                    "description": "Which channel will you focus on? (https://src.eco/?focus={channel}"
+                },
+                "fvn.useSimulator": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Simulate an environment where humans are asked to solve zero-knowledge proofs."
+                }
+            }
+        }
     },
     "scripts": {
         "lint": "eslint .",

@@ -10,11 +10,11 @@
             ]
         },
         "input": {
-            "match": "< ONE@STATE:",
+            "match": "< ONE@BOOK:",
             "name": "invalid.input"
         },
         "output": {
-            "match": "> ONE@STATE:",
+            "match": "> ONE@BOOK:",
             "name": "keyword.output"
         },
         "variable": {

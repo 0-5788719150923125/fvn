@@ -4,6 +4,8 @@ const Gun = require('gun')
 const {
     colors,
     delay,
+    get_config,
+    get_setting,
     isAlive,
     outputChannel,
     randomString
@@ -11,7 +13,7 @@ const {
 
 class FVN {
     constructor() {
-        this.localHost = 'STATE'
+        this.localHost = 'BOOK'
         this.localPort = 60666
         this.localPeer = `http://localhost:${this.localPort}/gun`
         this.bootstrapPeers = [
@@ -142,6 +144,8 @@ class FVN {
                 outputChannel.appendLine(
                     `> ONE@${this.localHost}: ${result.message}`
                 )
+
+                if (get_setting('useSimulator') !== true) return
                 if (result.choice1 && result.choice2) {
                     const response = await vscode.window.showInformationMessage(
                         'Someone has requested your action.',
